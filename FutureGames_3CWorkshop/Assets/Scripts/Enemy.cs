@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     public Transform player;
 
     public LayerMask whatIsGround, whatIsPlayer;
+
+    [SerializeField] private float health, maxHealth = 3f;
     
     //Patrolling
     public Vector3 walkPoint;
@@ -33,6 +35,7 @@ public class Enemy : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        health = maxHealth;
     }
 
     private void Update()
@@ -92,11 +95,12 @@ public class Enemy : MonoBehaviour
             //AttackCode
             Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            rb.AddForce(transform.up * 4f, ForceMode.Impulse);
             
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
+        
     }
 
     private void ResetAttack()
@@ -104,11 +108,11 @@ public class Enemy : MonoBehaviour
         alreadyAttacked = false;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damageAmount)
     {
-        //health -= damage;
+        health -= damageAmount;
         
-        //if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
     }
 
     private void DestroyEnemy()

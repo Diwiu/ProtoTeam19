@@ -21,6 +21,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private CharacterController controller;
     private Transform playerBody;
+    [SerializeField] private float health, maxHealth = 3f;
 
     private Vector3 movementVector;
     private Vector3 lastMaxMovementVector;
@@ -40,6 +41,7 @@ public class PlayerMovementController : MonoBehaviour
         playerBody = transform.GetChild(0);
         movementVector = Vector3.zero;
         targetSpeed = maximumSpeed;
+        health = maxHealth;
     }
 
     void Update()
@@ -114,6 +116,16 @@ public class PlayerMovementController : MonoBehaviour
         {
             float angle = Mathf.Atan2(rightStickPosition.x, rightStickPosition.y) * Mathf.Rad2Deg;
             playerBody.rotation = Quaternion.Euler(0, angle - 90, 0);
+        }
+    }
+
+    public void PlayerDamage(float damageCount)
+    {
+        health -= damageCount;
+        Debug.Log("damageTaken");
+        if (health <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
