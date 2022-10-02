@@ -15,6 +15,7 @@ public class Bullet : MonoBehaviour
         }
 
         // This makes enemies take damage by the projectile. Maybe make a separate script ?
+        // this currently makes the enemy kill itself because the spawnpoint of the bullet it instantiates is inside the collision.
         
         
         // if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
