@@ -116,6 +116,7 @@ public class PlayerMovementController : MonoBehaviour
         {
             float angle = Mathf.Atan2(rightStickPosition.x, rightStickPosition.y) * Mathf.Rad2Deg;
             playerBody.rotation = Quaternion.Euler(0, angle - 90, 0);
+            
         }
     }
 
