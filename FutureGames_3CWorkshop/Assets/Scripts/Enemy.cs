@@ -6,6 +6,7 @@ using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -14,8 +15,12 @@ public class Enemy : MonoBehaviour
     public Transform player;
 
     public LayerMask whatIsGround, whatIsPlayer;
+    
+    //Healthbar
+    public Image healthBar;
+    public float healthAmount = 10;
 
-    [SerializeField] private float health, maxHealth = 3f;
+    [SerializeField] private float health, maxHealth = 10f;
     
     //Patrolling
     public Vector3 walkPoint;
@@ -110,7 +115,9 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
+        Debug.Log("TakeDamageCalled");
         health -= damageAmount;
+        healthBar.fillAmount = health / 10;
         
         if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
     }
