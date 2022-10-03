@@ -2301,6 +2301,22 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 2559353}
   bulletPrefab: {fileID: 5989256488911425019, guid: 3278590c1f949494bbc37ea6ba93b65c, type: 3}
   bulletSpeed: 10
+--- !u!114 &493070763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493070748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff7a9e0496f2aff44bcdcf100bb19d6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 0.7
+  dashTime: 0.3
+  playerBody: {fileID: 898823357}
+  isDashing: 0
 --- !u!1 &529902650
 GameObject:
   m_ObjectHideFlags: 0
@@ -4104,6 +4120,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 740539017}
   m_CullTransparentMesh: 1
+--- !u!4 &898823357 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2737791784558644363, guid: 86f1967622fbece4eabcd0652b325176, type: 3}
+  m_PrefabInstance: {fileID: 2737791784066608047}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &918376342
 GameObject:
   m_ObjectHideFlags: 0

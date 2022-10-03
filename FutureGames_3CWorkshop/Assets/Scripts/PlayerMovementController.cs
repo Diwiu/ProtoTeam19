@@ -19,15 +19,15 @@ public class PlayerMovementController : MonoBehaviour
     private float speedChangeTimer = 0;
     private float lastVelocitybeforeDeceleration = 0;
 
-    private CharacterController controller;
+    public CharacterController controller;
     private Transform playerBody;
     [SerializeField] private float health, maxHealth = 3f;
 
     private Vector3 movementVector;
     private Vector3 lastMaxMovementVector;
 
-    private Vector2 leftStickPosition;
-    private Vector2 rightStickPosition;
+    public Vector2 leftStickPosition;
+    public Vector2 rightStickPosition;
 
     [HideInInspector]
     public bool isInputEnabled;
