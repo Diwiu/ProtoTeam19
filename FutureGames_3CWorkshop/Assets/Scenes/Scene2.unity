@@ -3194,9 +3194,10 @@ Transform:
   m_LocalPosition: {x: 9.549944, y: 0.53, z: -0.000060081482}
   m_LocalScale: {x: 3.7931006, y: 0.8508829, z: 3.7931006}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 661418248}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 57.399, z: 0}
 --- !u!114 &606490051
 MonoBehaviour:
@@ -3227,6 +3228,7 @@ MonoBehaviour:
   walkPointRange: 5
   timeBetweenAttacks: 0.5
   projectile: {fileID: 8787281888877353433, guid: c5a8139098b20d54c81630bdae0d551f, type: 3}
+  gunBarrel: {fileID: 661418248}
   sightRange: 10.2
   attackRange: 7
   playerInSightRange: 0
@@ -3931,7 +3933,7 @@ GameObject:
   m_Component:
   - component: {fileID: 661418248}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: GunBarrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3944,14 +3946,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661418247}
-  m_LocalRotation: {x: -0, y: 0.4974472, z: -0, w: 0.8674943}
-  m_LocalPosition: {x: 4.726309, y: 0, z: 8.242212}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.032, y: 0.777, z: 0.63}
+  m_LocalScale: {x: 0.26363653, y: 1.1752498, z: 0.26363653}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 59.662, z: 0}
+  m_Father: {fileID: 606490050}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &676913508
 GameObject:
   m_ObjectHideFlags: 0

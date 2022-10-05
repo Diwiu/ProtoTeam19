@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
     public float timeBetweenAttacks;
     private bool alreadyAttacked;
     public GameObject projectile;
+    public Transform gunBarrel;
     
     //states
     public float sightRange, attackRange;
@@ -114,14 +115,16 @@ public class Enemy : MonoBehaviour
         agent.SetDestination(transform.position);
         
         FaceTarget();
-        //transform.LookAt(player);
+        //                                       transform.LookAt(player);
 
         if (!alreadyAttacked)
         {
             //AttackCode
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 4f, ForceMode.Impulse);
+            // Rigidbody rb = Instantiate(projectile, transform.position, transform.rotation).GetComponent<Rigidbody>();
+            GameObject bullet = Instantiate(projectile, gunBarrel.position, gunBarrel.rotation);
+            bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * 32f, ForceMode.Impulse);
+            // rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
+            // rb.AddForce(transform.up * 4f, ForceMode.Impulse);
             
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
