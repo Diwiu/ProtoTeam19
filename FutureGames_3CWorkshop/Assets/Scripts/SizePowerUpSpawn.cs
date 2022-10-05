@@ -5,11 +5,14 @@ using UnityEngine;
 public class SizePowerUpSpawn : MonoBehaviour
 {
     public GameObject spawn;
-
+    
     private void Start()
     {
-        //Time when spawn begins, and when next spawn appears
-        InvokeRepeating("PowerUp", 5, 20);
+        
+        {
+            //Time when spawn begins, and when next spawn appears
+            InvokeRepeating("PowerUp", 5, 30);
+        }
     }
 
     //Location range for pickup to spawn

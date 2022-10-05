@@ -1,23 +1,24 @@
+//using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InvincibleSpawn: MonoBehaviour
+public class TimeSlowSpawn : MonoBehaviour
 {
     public GameObject spawn;
 
     private void Start()
     {
         //Time when spawn begins, and when next spawn appears
-        InvokeRepeating("PowerUp", 30, 70);
+        InvokeRepeating("PowerUp", 15, 60);
     }
 
     //Location range for pickup to spawn
     Vector3 GetSpawnPoint()
     {
-        float x = Random.Range(-15f, 20f);
+        float x = Random.Range(-16f, 0f);
         float y = (1f);
-        float z = Random.Range(4f, 21f);
+        float z = Random.Range(-21f, 21f);
 
         return new Vector3(x, y, z);
     }
@@ -26,5 +27,4 @@ public class InvincibleSpawn: MonoBehaviour
     {
         Instantiate(spawn, GetSpawnPoint(), Quaternion.identity);
     }
-
 }
