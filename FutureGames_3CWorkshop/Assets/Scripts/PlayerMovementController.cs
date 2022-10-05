@@ -19,19 +19,23 @@ public class PlayerMovementController : MonoBehaviour
     private float speedChangeTimer = 0;
     private float lastVelocitybeforeDeceleration = 0;
 
-    private CharacterController controller;
+    public CharacterController controller;
     private Transform playerBody;
-    [SerializeField] private float health, maxHealth = 3f;
+    [SerializeField] public float health, maxHealth = 3f;
 
     private Vector3 movementVector;
     private Vector3 lastMaxMovementVector;
 
-    private Vector2 leftStickPosition;
-    private Vector2 rightStickPosition;
+    public Vector2 leftStickPosition;
+    public Vector2 rightStickPosition;
+
+    [Header("Invincibility")]
+    public bool Invincible = false;
 
     [HideInInspector]
     public bool isInputEnabled;
     private bool isDecelerating = false;
+
 
 
     //@INIT
@@ -42,6 +46,7 @@ public class PlayerMovementController : MonoBehaviour
         movementVector = Vector3.zero;
         targetSpeed = maximumSpeed;
         health = maxHealth;
+        
     }
 
     void Update()
@@ -116,6 +121,7 @@ public class PlayerMovementController : MonoBehaviour
         {
             float angle = Mathf.Atan2(rightStickPosition.x, rightStickPosition.y) * Mathf.Rad2Deg;
             playerBody.rotation = Quaternion.Euler(0, angle - 90, 0);
+            
         }
     }
 
@@ -126,6 +132,12 @@ public class PlayerMovementController : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+        }
+
+        //Linked with Invincibility code
+        if(Invincible == true)
+        {
+            health -= damageCount;
         }
     }
 }
