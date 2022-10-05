@@ -9,7 +9,7 @@ public class SizePowerUpSpawn : MonoBehaviour
     private void Start()
     {
         //Time when spawn begins, and when next spawn appears
-        InvokeRepeating("PowerUp", 5, 10);
+        InvokeRepeating("PowerUp", 5, 20);
     }
 
     //Location range for pickup to spawn

@@ -9,15 +9,15 @@ public class InvincibleSpawn: MonoBehaviour
     private void Start()
     {
         //Time when spawn begins, and when next spawn appears
-        InvokeRepeating("PowerUp", 20, 30);
+        InvokeRepeating("PowerUp", 20, 40);
     }
 
     //Location range for pickup to spawn
     Vector3 GetSpawnPoint()
     {
-        float x = Random.Range(-16f, 0f);
+        float x = Random.Range(-15f, 20f);
         float y = (1f);
-        float z = Random.Range(-21f, 21f);
+        float z = Random.Range(4f, 21f);
 
         return new Vector3(x, y, z);
     }
