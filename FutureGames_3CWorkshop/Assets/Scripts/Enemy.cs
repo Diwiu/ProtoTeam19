@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     public NavMeshAgent agent;
     //Recieving Spawner info
     public Spawner spawner;
+    
 
     public Transform player;
 
@@ -142,13 +143,27 @@ public class Enemy : MonoBehaviour
         Debug.Log("TakeDamageCalled");
         health -= damageAmount;
         healthBar.fillAmount = health / healthAmount;
-        
+
+        var addNew = true;
+
         //Spawning enemies on certain health treshholds * Buggy: Enemy doesn't spawn. And bullet does not get destroyed, but still deals damage 
-        if (health <= 98f)
+        if (health == 98f && addNew)
         {
             Debug.Log("spawn!!!!!!!");
             spawner.SpawnEnemy();
+            spawner.SpawnEnemy();
+            spawner.SpawnEnemy();
+            addNew = false;
             
+        }
+        else if (health == 80f && addNew)
+        {
+            Debug.Log("spawn!!!!!!!");
+            spawner.SpawnEnemy();
+            spawner.SpawnEnemy();
+            spawner.SpawnEnemy();
+            addNew = false;
+
         }
 
         else if(health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
