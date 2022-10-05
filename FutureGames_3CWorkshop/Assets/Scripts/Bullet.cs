@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour
     {
         //Damages the player
         
+        
         if (collision.gameObject.TryGetComponent<PlayerMovementController>(out PlayerMovementController playerComponent))
         {
             playerComponent.PlayerDamage(1);
@@ -37,6 +38,8 @@ public class Bullet : MonoBehaviour
         //
         // Destroy(gameObject);
     }
+
+    
 
     void Suicide()
     {
