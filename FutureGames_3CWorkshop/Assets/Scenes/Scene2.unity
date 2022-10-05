@@ -3299,7 +3299,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 606490045}
   m_LocalRotation: {x: -0, y: 0.8529186, z: -0, w: 0.52204394}
-  m_LocalPosition: {x: 9.549944, y: 0.53, z: -0.000060081482}
+  m_LocalPosition: {x: 0.72, y: 0.53, z: 13.88}
   m_LocalScale: {x: 3.82648, y: 0.85837066, z: 3.82648}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3337,8 +3337,8 @@ MonoBehaviour:
   timeBetweenAttacks: 0.5
   projectile: {fileID: 8787281888877353433, guid: c5a8139098b20d54c81630bdae0d551f, type: 3}
   gunBarrel: {fileID: 661418248}
-  sightRange: 19.9
-  attackRange: 15.88
+  sightRange: 33.8
+  attackRange: 27.9
   playerInSightRange: 0
   playerInAttackRange: 0
 --- !u!114 &606490052
