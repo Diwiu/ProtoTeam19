@@ -124,8 +124,9 @@ public class Enemy : MonoBehaviour
         healthBar.fillAmount = health / healthAmount;
         
         //Spawning enemies on certain health treshholds * Buggy: Enemy doesn't spawn. And bullet does not get destroyed, but still deals damage 
-        if (health == 98f)
+        if (health <= 98f)
         {
+            Debug.Log("spawn!!!!!!!");
             spawner.SpawnEnemy();
             
         }
