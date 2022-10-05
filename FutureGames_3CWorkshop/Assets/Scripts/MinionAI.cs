@@ -12,12 +12,18 @@ public class MinionAI : MonoBehaviour
 {
     NavMeshAgent agent;
 
+    //Health on Minions
+    [SerializeField] float startHealth, maxHealth;
+    public float healthAmount;
+    //public float maxHealth;
+
     GameObject target;
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player");
+        healthAmount = startHealth;
     }
 
     private void Update()
@@ -28,5 +34,16 @@ public class MinionAI : MonoBehaviour
     private void GoToTarget()
     {
         agent.SetDestination(target.transform.position);
+    }
+
+    public void MinionTakeDamage(float damageAmount)
+    {
+        Debug.Log("TakeDamageCalled");
+        healthAmount -= damageAmount;
+        if (healthAmount <= 0)
+        {
+            Destroy(gameObject);
+        }
+       
     }
 }
