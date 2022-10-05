@@ -9,7 +9,7 @@ public class HealthPowerUpSpawn : MonoBehaviour
     private void Start()
     {
         //Time when spawn begins, and when next spawn appears
-        InvokeRepeating("PowerUp", 10, 30);
+        InvokeRepeating("PowerUp", 10, 45);
     }
 
     //Location range for pickup to spawn
