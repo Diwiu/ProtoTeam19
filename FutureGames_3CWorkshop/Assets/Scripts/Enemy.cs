@@ -11,6 +11,8 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     public NavMeshAgent agent;
+    //Recieving Spawner info
+    public Spawner spawner;
 
     public Transform player;
 
@@ -18,7 +20,9 @@ public class Enemy : MonoBehaviour
     
     //Healthbar
     public Image healthBar;
-    public float healthAmount = 10;
+    //public float healthAmount = 10;
+    //Makes health editable in the Inspector - Simon
+    public float healthAmount;
 
     [SerializeField] private float health, maxHealth = 10f;
     
@@ -117,9 +121,16 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("TakeDamageCalled");
         health -= damageAmount;
-        healthBar.fillAmount = health / 10;
+        healthBar.fillAmount = health / healthAmount;
         
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+        //Spawning enemies on certain health treshholds * Buggy: Enemy doesn't spawn. And bullet does not get destroyed, but still deals damage 
+        if (health == 98f)
+        {
+            spawner.SpawnEnemy();
+            
+        }
+
+        else if(health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
     }
 
     private void DestroyEnemy()
