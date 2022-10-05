@@ -52,10 +52,18 @@ public class Enemy : MonoBehaviour
         //check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        float distance = Vector3.Distance(player.position, transform.position);
 
         if (!playerInSightRange && !playerInAttackRange) Patrolling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInSightRange && playerInAttackRange) AttackPlayer();
+        if (distance <= sightRange)
+        {
+            if (distance <= agent.stoppingDistance)
+            {
+                FaceTarget();
+            }
+        }
 
     }
 
@@ -90,6 +98,14 @@ public class Enemy : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
+        FaceTarget();
+    }
+
+    void FaceTarget()
+    {
+        Vector3 direction = (player.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
     private void AttackPlayer()
@@ -97,7 +113,8 @@ public class Enemy : MonoBehaviour
         //make sure enemy doesnt move
         agent.SetDestination(transform.position);
         
-        transform.LookAt(player);
+        FaceTarget();
+        //transform.LookAt(player);
 
         if (!alreadyAttacked)
         {
