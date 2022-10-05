@@ -13,6 +13,10 @@ public class Bullet : MonoBehaviour
         {
             playerComponent.PlayerDamage(1);
         }
+            
+        //Destroy(gameObject);
+        
+        
 
         // This makes enemies take damage by the projectile. Maybe make a separate script ?
         // this currently makes the enemy kill itself because the spawnpoint of the bullet it instantiates is inside the collision.
@@ -25,4 +29,5 @@ public class Bullet : MonoBehaviour
         //
         // Destroy(gameObject);
     }
+    
 }

@@ -11,8 +11,8 @@ public class Gun : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletSpeed = 10;
 
-    private float fireRate = 0.4f;
-    private float nextFire = 0f;
+    private float fireRate = 0.1f;
+    private float nextFire = 0.2f;
 
     void Update()
     {
