@@ -155,6 +155,7 @@ public class Enemy : MonoBehaviour
             spawner.SpawnEnemy();
             addNew = false;
             
+            
         }
         else if (health == 80f && addNew)
         {

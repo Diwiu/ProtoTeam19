@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerProjectile : MonoBehaviour
 {
     public int damage;
-    public Enemy bossHealth;
+    public Enemy enemy;
 
     // private void OnCollisionEnter(Collision collision)
     // {
@@ -19,27 +19,43 @@ public class PlayerProjectile : MonoBehaviour
     //     }
     //     Destroy(gameObject);
     // }
-
-    private void OnCollisionEnter(Collision collision)
+    private void Start()
     {
-        if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
-        {
-            Debug.Log("collision");
-            enemyComponent.TakeDamage(1);
-            Destroy(gameObject);
-        }
-
-        else if (collision.gameObject.TryGetComponent<MinionAI>(out MinionAI minionComponent))
-        {
-            Debug.Log("collision");
-            minionComponent.MinionTakeDamage(1);
-            Destroy(gameObject);
-        }
-        
-
-        Destroy(gameObject);
+        enemy = GameObject.FindWithTag("Boss").GetComponent<Enemy>();
     }
 
+    
+
+    // private void OnCollisionEnter(Collision collision)
+    // {
+    //     if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
+    //     {
+    //         Debug.Log("collision");
+    //         enemyComponent.TakeDamage(1);
+    //         
+    //     }
+    //     
+    //     else if (collision.gameObject.TryGetComponent<MinionAI>(out MinionAI minionComponent))
+    //     {
+    //         Debug.Log("collision");
+    //         minionComponent.MinionTakeDamage(1);
+    //         
+    //     }
+    //
+    //    
+    //
+    //     Destroy(this.gameObject);
+    // }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Boss"))
+        {
+            enemy.TakeDamage(1);
+            Destroy(this.gameObject);
+        }
+        Destroy(gameObject, 2f);
+    }
     
     
 }
