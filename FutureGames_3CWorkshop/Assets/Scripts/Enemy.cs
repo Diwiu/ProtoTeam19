@@ -13,8 +13,8 @@ public class Enemy : MonoBehaviour
     public NavMeshAgent agent;
     //Recieving Spawner info
     public Spawner spawner;
-    
 
+    public GameObject aura;
     public Transform player;
 
     public LayerMask whatIsGround, whatIsPlayer;
@@ -144,6 +144,7 @@ public class Enemy : MonoBehaviour
         health -= damageAmount;
         healthBar.fillAmount = health / healthAmount;
 
+        Instantiate(aura, this.transform.position, this.transform.rotation);
         var addNew = true;
 
         //Spawning enemies on certain health treshholds * Buggy: Enemy doesn't spawn. And bullet does not get destroyed, but still deals damage 

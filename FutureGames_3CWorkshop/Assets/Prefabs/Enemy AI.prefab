@@ -170,7 +170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 6632035884917180324}
   spawner: {fileID: 0}
-  player: {fileID: 0}
+  aura: {fileID: 5869735364677476708, guid: 380918604ea19734bb5c588ace03cd53, type: 3}
+  player: {fileID: 1652828120720554985, guid: 66f9200455308654d9caa247c385f584, type: 3}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64

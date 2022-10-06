@@ -16,6 +16,8 @@ public class MinionAI : MonoBehaviour
     [SerializeField] private float startHealth;
     public float healthAmount;
     //public float maxHealth;
+    
+    public GameObject damageTakenEffect;
 
     GameObject target;
 
@@ -38,8 +40,10 @@ public class MinionAI : MonoBehaviour
 
     public void MinionTakeDamage(float damageAmount)
     {
+        
         Debug.Log("TakeDamageCalled");
         healthAmount -= damageAmount;
+        Instantiate(damageTakenEffect, this.transform.position, this.transform.rotation);
         if (healthAmount <= 0)
         {
             Destroy(gameObject);
