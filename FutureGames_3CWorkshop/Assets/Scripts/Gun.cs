@@ -45,18 +45,30 @@ public class Gun : MonoBehaviour
     //     
     // }
 
-    private void OnLook(InputValue lookValue)
+  
+
+    // private void OnLook(InputValue lookValue)
+    // {
+    //    
+    //     if (lookValue.Get<Vector2>() != Vector2.zero && Time.time > nextFire)
+    //     {
+    //         nextFire = Time.time + fireRate;
+    //         var ball = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+    //         ball.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
+    //         // Destroy(ball, 1f);
+    //
+    //     }
+    //
+    // }
+
+    private void OnFire(InputValue Fire)
     {
-       
-        if (lookValue.Get<Vector2>() != Vector2.zero && Time.time > nextFire)
+        if (Fire.isPressed)
         {
             nextFire = Time.time + fireRate;
             var ball = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             ball.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
-            // Destroy(ball, 1f);
-
         }
-
     }
 
 }

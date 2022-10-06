@@ -127,11 +127,15 @@ public class PlayerMovementController : MonoBehaviour
 
     public void PlayerDamage(float damageCount)
     {
+        Gamepad.current.SetMotorSpeeds(1f, 1f);
+        Invoke("StopVibration", 0.2f);
+        
         health -= damageCount;
         Debug.Log("damageTaken");
         if (health <= 0)
         {
             Destroy(gameObject);
+            Gamepad.current.SetMotorSpeeds(0f,0f);
         }
 
         //Linked with Invincibility code
@@ -140,4 +144,10 @@ public class PlayerMovementController : MonoBehaviour
             health -= damageCount;
         }
     }
+
+    private void StopVibration()
+    {
+        Gamepad.current.SetMotorSpeeds(0f, 0f);
+    }
+    
 }

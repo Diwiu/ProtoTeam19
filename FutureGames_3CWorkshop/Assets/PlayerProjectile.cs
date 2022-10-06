@@ -58,7 +58,6 @@ public class PlayerProjectile : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Minion"))
         {
-            Debug.Log("miniontag");
             minionAI.MinionTakeDamage(1);
             Destroy(gameObject);
         }
