@@ -23,6 +23,7 @@ public class PlayerProjectile : MonoBehaviour
     private void Start()
     {
         enemy = GameObject.FindWithTag("Boss").GetComponent<Enemy>();
+        minionAI = GameObject.FindWithTag("Minion").GetComponent<MinionAI>();
     }
 
     
@@ -57,7 +58,8 @@ public class PlayerProjectile : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Minion"))
         {
-            minionAI.MinionTakeDamage(1f);
+            Debug.Log("miniontag");
+            minionAI.MinionTakeDamage(1);
             Destroy(gameObject);
         }
         

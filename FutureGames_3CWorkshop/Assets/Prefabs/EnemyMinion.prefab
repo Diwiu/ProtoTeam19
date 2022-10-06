@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startHealth: 5
   maxHealth: 3
-  healthAmount: 3
+  healthAmount: 0
 --- !u!195 &8518213209599737968
 NavMeshAgent:
   m_ObjectHideFlags: 0

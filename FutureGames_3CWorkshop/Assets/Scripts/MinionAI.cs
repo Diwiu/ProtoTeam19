@@ -13,7 +13,7 @@ public class MinionAI : MonoBehaviour
     NavMeshAgent agent;
 
     //Health on Minions
-    [SerializeField] float startHealth, maxHealth;
+    [SerializeField] private float startHealth;
     public float healthAmount;
     //public float maxHealth;
 
