@@ -7,6 +7,7 @@ public class PlayerProjectile : MonoBehaviour
 {
     public int damage;
     public Enemy enemy;
+    public MinionAI minionAI;
 
     // private void OnCollisionEnter(Collision collision)
     // {
@@ -54,6 +55,12 @@ public class PlayerProjectile : MonoBehaviour
             enemy.TakeDamage(1);
             Destroy(this.gameObject);
         }
+        else if (other.gameObject.CompareTag("Minion"))
+        {
+            minionAI.MinionTakeDamage(1f);
+            Destroy(gameObject);
+        }
+        
         Destroy(gameObject, 2f);
     }
     
