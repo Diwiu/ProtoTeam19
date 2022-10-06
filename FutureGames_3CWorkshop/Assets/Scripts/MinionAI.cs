@@ -46,4 +46,15 @@ public class MinionAI : MonoBehaviour
         }
        
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        //Damages the player
+
+
+        if (collision.gameObject.TryGetComponent<PlayerMovementController>(out PlayerMovementController playerComponent))
+        {
+            playerComponent.PlayerDamage(1);
+            Destroy(gameObject);
+        }
+    }
 }
