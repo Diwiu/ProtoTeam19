@@ -6,8 +6,7 @@ using UnityEngine;
 public class PlayerProjectile : MonoBehaviour
 {
     public int damage;
-    public Enemy enemy;
-    public MinionAI minionAI;
+    
 
     // private void OnCollisionEnter(Collision collision)
     // {
@@ -22,8 +21,7 @@ public class PlayerProjectile : MonoBehaviour
     // }
     private void Start()
     {
-        enemy = GameObject.FindWithTag("Boss").GetComponent<Enemy>();
-        minionAI = GameObject.FindWithTag("Minion").GetComponent<MinionAI>();
+        
     }
 
     
@@ -53,12 +51,12 @@ public class PlayerProjectile : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Boss"))
         {
-            enemy.TakeDamage(1);
+            other.GetComponent<Enemy>().TakeDamage(1);
             Destroy(this.gameObject);
         }
         else if (other.gameObject.CompareTag("Minion"))
         {
-            minionAI.MinionTakeDamage(1);
+            other.GetComponent<MinionAI>().MinionTakeDamage(1);
             Destroy(gameObject);
         }
         
