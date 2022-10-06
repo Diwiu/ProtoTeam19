@@ -16,8 +16,6 @@ public class ThirdPersonDash : MonoBehaviour
 
     public Transform playerBody;
     
-    
-    
 
     public bool isDashing;
 
@@ -55,7 +53,7 @@ public class ThirdPersonDash : MonoBehaviour
             timer += Time.deltaTime;
     
             var t = timer / dashTime;
-            //                                      //A                              //B                                                                                                                      //T
+            //                                                 //A                              //B                                                                                                                      //T
             this.transform.position = Vector3.Lerp(this.transform.position,  playerBody.transform.position + new Vector3(moveScript.leftStickPosition.x, 0, moveScript.leftStickPosition.y) * dashSpeed, t);
             yield return new WaitForEndOfFrame();
             

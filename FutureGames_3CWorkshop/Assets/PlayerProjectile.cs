@@ -26,13 +26,16 @@ public class PlayerProjectile : MonoBehaviour
         {
             Debug.Log("collision");
             enemyComponent.TakeDamage(1);
+            Destroy(gameObject);
         }
 
         else if (collision.gameObject.TryGetComponent<MinionAI>(out MinionAI minionComponent))
         {
             Debug.Log("collision");
             minionComponent.MinionTakeDamage(1);
+            Destroy(gameObject);
         }
+        
 
         Destroy(gameObject);
     }
