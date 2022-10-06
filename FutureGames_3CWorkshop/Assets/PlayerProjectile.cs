@@ -60,7 +60,7 @@ public class PlayerProjectile : MonoBehaviour
             Destroy(gameObject);
         }
         
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 0.4f);
     }
     
     

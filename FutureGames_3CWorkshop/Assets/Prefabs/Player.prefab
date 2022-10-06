@@ -440,7 +440,8 @@ MonoBehaviour:
   decelerationDuration: 0.7
   controller: {fileID: 0}
   health: 0
-  maxHealth: 3
+  maxHealth: 6
+  healthBar: {fileID: 0}
   leftStickPosition: {x: 0, y: 0}
   rightStickPosition: {x: 0, y: 0}
   Invincible: 0
@@ -461,7 +462,7 @@ CapsuleCollider:
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!96 &1652828120720555000
 TrailRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -562,11 +563,14 @@ TrailRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
+  m_MaskInteraction: 0
   m_Autodestruct: 0
   m_Emitting: 1
+  m_ApplyActiveColorSpace: 0
 --- !u!114 &1652828120720554978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -582,6 +586,8 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 1652828121549407439}
   bulletPrefab: {fileID: 5989256488911425019, guid: 3278590c1f949494bbc37ea6ba93b65c, type: 3}
   bulletSpeed: 40
+  fireRate: 0.1
+  nextFire: 0.2
 --- !u!114 &1652828120720554979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -712,6 +718,8 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 1652828121549407439}
   bulletPrefab: {fileID: 5989256488911425019, guid: 3278590c1f949494bbc37ea6ba93b65c, type: 3}
   bulletSpeed: 10
+  fireRate: 0.1
+  nextFire: 0.2
 --- !u!1 &1652828121549407438
 GameObject:
   m_ObjectHideFlags: 0

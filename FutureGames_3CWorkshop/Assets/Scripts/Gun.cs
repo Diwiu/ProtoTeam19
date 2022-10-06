@@ -14,13 +14,9 @@ public class Gun : MonoBehaviour
 
     [SerializeField] private float fireRate = 0.1f;
     [SerializeField] private float nextFire = 0.2f;
+    
 
-    private Gamepad myGamepad;
-
-    private void Start()
-    {
-        myGamepad = Gamepad.current;
-    }
+    
 
     void Update()
     {
@@ -33,6 +29,7 @@ public class Gun : MonoBehaviour
     }
 
 
+    
     // private void FixedUpdate()
     // {
     //     // if the right stick vector is other than 0 we want this to happen

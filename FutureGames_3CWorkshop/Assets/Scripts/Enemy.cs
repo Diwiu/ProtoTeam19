@@ -147,10 +147,14 @@ public class Enemy : MonoBehaviour
         Instantiate(aura, this.transform.position, this.transform.rotation);
         var addNew = true;
 
+        if (health <= 0f)
+        {
+            Destroy(gameObject);
+        }
+
         //Spawning enemies on certain health treshholds * Buggy: Enemy doesn't spawn. And bullet does not get destroyed, but still deals damage 
         if (health == 98f && addNew)
         {
-            Debug.Log("spawn!!!!!!!");
             spawner.SpawnEnemy();
             spawner.SpawnEnemy();
             spawner.SpawnEnemy();
@@ -160,7 +164,6 @@ public class Enemy : MonoBehaviour
         }
         else if (health == 80f && addNew)
         {
-            Debug.Log("spawn!!!!!!!");
             spawner.SpawnEnemy();
             spawner.SpawnEnemy();
             spawner.SpawnEnemy();
@@ -168,7 +171,14 @@ public class Enemy : MonoBehaviour
 
         }
 
-        else if(health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+        else if (health <= 30f && addNew)
+        {
+            spawner.SpawnEnemy();
+            spawner.SpawnEnemy();
+            spawner.SpawnEnemy();
+            addNew = false;
+
+        }
     }
 
     private void DestroyEnemy()

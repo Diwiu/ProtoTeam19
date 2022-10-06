@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerMovementController : MonoBehaviour
 {
@@ -21,8 +22,10 @@ public class PlayerMovementController : MonoBehaviour
 
     public CharacterController controller;
     private Transform playerBody;
-    [SerializeField] public float health, maxHealth = 3f;
+    [SerializeField] public int health, maxHealth = 6;
 
+    public HealthBar healthBar;
+    
     private Vector3 movementVector;
     private Vector3 lastMaxMovementVector;
 
@@ -46,6 +49,7 @@ public class PlayerMovementController : MonoBehaviour
         movementVector = Vector3.zero;
         targetSpeed = maximumSpeed;
         health = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
         
     }
 
@@ -125,12 +129,14 @@ public class PlayerMovementController : MonoBehaviour
         }
     }
 
-    public void PlayerDamage(float damageCount)
+    public void PlayerDamage(int damageCount)
     {
         Gamepad.current.SetMotorSpeeds(1f, 1f);
         Invoke("StopVibration", 0.2f);
         
         health -= damageCount;
+        
+        healthBar.SetHealth(health);
         Debug.Log("damageTaken");
         if (health <= 0)
         {

@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class HealthPickUp : MonoBehaviour
 {
     //public GameObject pickupEffect;
-    public float multiplier = 2f;
+    public int multiplier = 2;
     public float duration = 4f;
 
     
