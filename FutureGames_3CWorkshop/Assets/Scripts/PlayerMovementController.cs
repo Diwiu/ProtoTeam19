@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,7 +40,7 @@ public class PlayerMovementController : MonoBehaviour
     public bool isInputEnabled;
     private bool isDecelerating = false;
 
-
+    Renderer m_Renderer;
 
     //@INIT
     void Start()
@@ -148,9 +149,11 @@ public class PlayerMovementController : MonoBehaviour
         if(Invincible == true)
         {
             health -= damageCount;
+            m_Renderer.material.color = Color.green;
         }
     }
 
+   
     private void StopVibration()
     {
         Gamepad.current.SetMotorSpeeds(0f, 0f);

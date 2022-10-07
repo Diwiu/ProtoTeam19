@@ -10,7 +10,7 @@ public class InvincibleSpawn: MonoBehaviour
     private void Start()
     {
         //Time when spawn begins, and when next spawn appears
-        InvokeRepeating("PowerUp", 30, 70);
+        InvokeRepeating("PowerUp", 3, 70);
     }
 
     //Location range for pickup to spawn

@@ -26,7 +26,7 @@ public class HealthPickUp : MonoBehaviour
         //Instantiate(pickupEffect, transform.position, transform.rotation);
 
         PlayerMovementController stats = Player.GetComponent<PlayerMovementController>();
-        stats.maxHealth *= multiplier;
+        stats.health *= multiplier;
 
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;

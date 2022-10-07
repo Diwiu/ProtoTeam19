@@ -7,14 +7,14 @@ public class Invincibility : MonoBehaviour
 {
     
     public float duration = 4f;
-
+    
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             StartCoroutine(Pickup(other));
-        }
+         }
     }
 
     IEnumerator Pickup(Collider Player)
@@ -23,6 +23,7 @@ public class Invincibility : MonoBehaviour
 
         PlayerMovementController damage = Player.GetComponent<PlayerMovementController>();
         damage.Invincible = true;
+
 
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
