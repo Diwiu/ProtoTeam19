@@ -33,7 +33,7 @@ public class HealthPickUp : MonoBehaviour
 
         yield return new WaitForSeconds(duration);
 
-        stats.maxHealth /= multiplier;
+        //stats.maxHealth /= multiplier;
 
         Destroy(this.gameObject);
     }
