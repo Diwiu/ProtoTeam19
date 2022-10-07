@@ -143,7 +143,7 @@ public class PlayerMovementController : MonoBehaviour
             Destroy(gameObject);
             Gamepad.current.SetMotorSpeeds(0f,0f);
         }
-
+        
         //Linked with Invincibility code
         if(Invincible == true)
         {
@@ -151,6 +151,17 @@ public class PlayerMovementController : MonoBehaviour
         }
     }
 
+    public void IncreaseHealth(int pickupHealth)
+    {
+        health += pickupHealth;
+        if (health >= 6)
+        {
+            health = 6;
+        }
+        healthBar.SetHealth(health);
+        
+    }
+    
    
     private void StopVibration()
     {
