@@ -40,8 +40,7 @@ public class PlayerMovementController : MonoBehaviour
     public bool isInputEnabled;
     private bool isDecelerating = false;
 
-    Renderer m_Renderer;
-
+    
     //@INIT
     void Start()
     {
@@ -148,8 +147,7 @@ public class PlayerMovementController : MonoBehaviour
         //Linked with Invincibility code
         if(Invincible == true)
         {
-            health -= damageCount;
-            m_Renderer.material.color = Color.green;
+            health -= damageCount;            
         }
     }
 

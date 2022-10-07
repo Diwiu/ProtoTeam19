@@ -6,8 +6,9 @@ using UnityEngine.InputSystem;
 public class HealthPickUp : MonoBehaviour
 {
     //public GameObject pickupEffect;
-    public int multiplier = 2;
+    //public int multiplier = 2;
     public float duration = 4f;
+    public int heal = 2;
 
     
     void OnTriggerEnter(Collider other)
@@ -26,7 +27,7 @@ public class HealthPickUp : MonoBehaviour
         //Instantiate(pickupEffect, transform.position, transform.rotation);
 
         PlayerMovementController stats = Player.GetComponent<PlayerMovementController>();
-        stats.health *= multiplier;
+        stats.health += heal;
 
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
